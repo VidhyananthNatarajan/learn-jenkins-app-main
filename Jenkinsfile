@@ -43,10 +43,10 @@ pipeline {
                   }
                }
                steps{
-                    // running npm as local and build 'serve'
+                    // Install serve as localized version. Take the path. This is to ensure to have live application running for Playwright tests.
                   sh '''
                       npm install serve
-                      node_modules/.bin/serve -s build
+                      node_modules/.bin/serve -s build &
                       npx playwright test
                   ''' 
                }  
